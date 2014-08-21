@@ -11,7 +11,8 @@ app.directive('autocomplete', function() {
       searchParam: '=ngModel',
       suggestions: '=data',
       onType: '=onType',
-      onSelect: '=onSelect'
+      onSelect: '=onSelect',
+      onPreSelect: '=onPreSelect'
     },
     controller: ['$scope', function($scope){
       // the index of the suggestions that's currently selected
@@ -56,6 +57,12 @@ app.directive('autocomplete', function() {
 
       // for hovering over suggestions
       this.preSelect = function(suggestion){
+        
+        if(suggestion){
+          if($scope.onPreSelect) {
+              $scope.onPreSelect(suggestion);
+          }
+        }
 
         watching = false;
 
