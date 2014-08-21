@@ -214,9 +214,17 @@ app.directive('autocomplete', function() {
           default:
             return;
         }
+        
+        if (scope.getIndex() < 0 && keycode == key.enter) {
 
-        if(scope.getIndex()!==-1 || keycode == key.enter)
-          e.preventDefault();
+        } else {
+          if(scope.getIndex()!==-1 || keycode == key.enter) {
+            e.preventDefault();
+          }
+        }
+
+        //if(scope.getIndex()!==-1 || keycode == key.enter)
+        //  e.preventDefault();
       });
     },
     template: '\
