@@ -12,7 +12,7 @@ app.directive('autocomplete', function() {
       suggestions: '=data',
       onType: '=onType',
       onSelect: '=onSelect',
-      onPreSelect: '=onPreSelect'
+      onSuggestionHover: '=onSuggestionHover'
     },
     controller: ['$scope', function($scope){
       // the index of the suggestions that's currently selected
@@ -59,8 +59,8 @@ app.directive('autocomplete', function() {
       this.preSelect = function(suggestion){
         
         if(suggestion){
-          if($scope.onPreSelect) {
-              $scope.onPreSelect(suggestion);
+          if($scope.onSuggestionHover) {
+              $scope.onSuggestionHover(suggestion);
           }
         }
 
